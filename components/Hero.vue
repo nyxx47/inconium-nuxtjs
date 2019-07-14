@@ -34,7 +34,18 @@ export default {
                     },1000)
                     
                 }
+
+                setTimeout(function(){
+                         ost();
+                    }, 1100)
             }
+
+            function ost(){
+                var audio = new Audio('MenuContinue.ctOS.wav');
+                return audio.play();
+            }
+
+            
 
             loadBar()
         })
