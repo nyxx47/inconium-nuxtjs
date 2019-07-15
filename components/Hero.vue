@@ -14,41 +14,29 @@
 
 <script>
 export default {
-    head () {
-    return {
-      script: [
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' }
-      ]
-    }
-  },
 
   mounted(){
 
-        $('document').ready(function(){
-
-            function loadBar(){
+    function loadBar(){
                 let n = 100;
                 for(let i=0; i<=n; i++){
                     setTimeout(function(){
                         $('head').append('<style>.progress-bar:before{width:'+i+'% !important;}</style>');
-                    },1000)
+                    },10000)
                     
                 }
-
-                setTimeout(function(){
-                         ost();
-                    }, 1100)
             }
-
-            function ost(){
-                var audio = new Audio('MenuContinue.ctOS.wav');
-                return audio.play();
-            }
-
-            
 
             loadBar()
-        })
+
+                    window.addEventListener("load", function(){
+                        console.log("load is good")
+                        setTimeout(function(){
+                         var audio = new Audio('MenuContinue.ctOS.wav');
+                            audio.play();
+                            
+                    }, 1100)
+                    })
     }
 
 }
